@@ -27,15 +27,26 @@ export const VideoCarousel: React.FC<VideoCarouselProps> = ({ videos, aspectRati
   };
 
   useEffect(() => {
+    let tick = false;
+    const handleScroll = () => {
+      if (!tick) {
+        requestAnimationFrame(() => {
+          checkScroll();
+          tick = false;
+        });
+        tick = true;
+      }
+    };
+
     checkScroll();
     const el = scrollRef.current;
     if (el) {
-      el.addEventListener('scroll', checkScroll, { passive: true });
-      window.addEventListener('resize', checkScroll);
+      el.addEventListener('scroll', handleScroll, { passive: true });
+      window.addEventListener('resize', handleScroll, { passive: true });
     }
     return () => {
-      if (el) el.removeEventListener('scroll', checkScroll);
-      window.removeEventListener('resize', checkScroll);
+      if (el) el.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
     };
   }, [videos]);
 

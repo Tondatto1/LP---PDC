@@ -145,7 +145,7 @@ const LightRays: React.FC<LightRaysProps> = ({
       if (!containerRef.current) return;
 
       const renderer = new Renderer({
-        dpr: Math.min(window.devicePixelRatio, 2),
+        dpr: Math.min(window.devicePixelRatio, 1.25),
         alpha: true
       });
       rendererRef.current = renderer;
@@ -294,7 +294,7 @@ void main() {
       const updatePlacement = () => {
         if (!containerRef.current || !renderer) return;
 
-        renderer.dpr = Math.min(window.devicePixelRatio, 2);
+        renderer.dpr = Math.min(window.devicePixelRatio, 1.25);
 
         const { clientWidth: wCSS, clientHeight: hCSS } = containerRef.current;
         renderer.setSize(wCSS, hCSS);
@@ -430,17 +430,47 @@ void main() {
   ]);
 
   useEffect(() => {
+    let pendingRaf: number | null = null;
+    let cachedRect: DOMRect | null = null;
+
+    const updateRect = () => {
+      if (containerRef.current) {
+        cachedRect = containerRef.current.getBoundingClientRect();
+      }
+    };
+
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current || !rendererRef.current) return;
-      const rect = containerRef.current.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width;
-      const y = (e.clientY - rect.top) / rect.height;
-      mouseRef.current = { x, y };
+      if (!cachedRect) updateRect();
+      if (!cachedRect || cachedRect.width === 0 || cachedRect.height === 0) return;
+
+      const clientX = e.clientX;
+      const clientY = e.clientY;
+
+      if (pendingRaf === null) {
+        pendingRaf = requestAnimationFrame(() => {
+          if (cachedRect) {
+            const x = (clientX - cachedRect.left) / cachedRect.width;
+            const y = (clientY - cachedRect.top) / cachedRect.height;
+            mouseRef.current = { x, y };
+          }
+          pendingRaf = null;
+        });
+      }
     };
 
     if (followMouse) {
-      window.addEventListener('mousemove', handleMouseMove);
-      return () => window.removeEventListener('mousemove', handleMouseMove);
+      updateRect();
+      window.addEventListener('resize', updateRect, { passive: true });
+      window.addEventListener('scroll', updateRect, { passive: true });
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+
+      return () => {
+        window.removeEventListener('resize', updateRect);
+        window.removeEventListener('scroll', updateRect);
+        window.removeEventListener('mousemove', handleMouseMove);
+        if (pendingRaf !== null) cancelAnimationFrame(pendingRaf);
+      };
     }
   }, [followMouse]);
 

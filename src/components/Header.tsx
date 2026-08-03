@@ -11,10 +11,18 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCtaModal }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
+    let tick = false;
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!tick) {
+        requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 20;
+          setScrolled(prev => (prev !== isScrolled ? isScrolled : prev));
+          tick = false;
+        });
+        tick = true;
+      }
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 

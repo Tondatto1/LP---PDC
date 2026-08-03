@@ -285,12 +285,6 @@ export const FAQ_ITEMS: FaqItem[] = [
     category: 'duracao'
   },
   {
-    id: '5',
-    question: 'Como funciona o Método PCP no Agronegócio?',
-    answer: 'O Método PCP (Prospecção, Conexão e Performance) é uma metodologia comercial desenvolvida para o Agro. Ela une inteligência de mercado a negociações consultivas de alto ticket, ensinando a demonstrar o ROI por hectare e fechar mais negócios com maior margem.',
-    category: 'metodo'
-  },
-  {
     id: '6',
     question: 'É possível personalizar o treinamento para a nossa linha de produtos e insumos?',
     answer: 'Com certeza! Realizamos um diagnóstico prévio com a sua gestão para customizar cases reais, cenários de objeção do produtor e simulações focadas na sua linha de produtos ou soluções agrícolas.',

@@ -132,6 +132,8 @@ const useAnimationLoop = (
     const track = trackRef.current;
     if (!track) return;
 
+    track.style.willChange = 'transform';
+
     const seqSize = isVertical ? seqHeight : seqWidth;
 
     if (seqSize > 0) {
