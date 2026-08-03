@@ -123,10 +123,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenCtaModal }) => {
         href={`https://wa.me/5567998190294?text=${encodeURIComponent('Olá, venho através da página. Gostaria de falar com consultor.')}`}
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-40 bg-emerald-500 hover:bg-emerald-400 text-slate-950 p-3.5 rounded-full shadow-2xl shadow-emerald-500/50 flex items-center gap-2 font-black text-xs transition transform hover:scale-105 group"
+        className="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-emerald-500 via-emerald-400 to-teal-500 hover:from-emerald-400 hover:to-teal-400 text-slate-950 p-3.5 rounded-full border border-emerald-200/80 ring-2 ring-emerald-500/30 shadow-2xl shadow-emerald-500/50 flex items-center gap-2 font-black text-xs transition transform hover:scale-105 group"
         aria-label="Atendimento via WhatsApp"
       >
-        <MessageCircle className="w-6 h-6 fill-slate-950 text-emerald-500" />
+        <MessageCircle className="w-6 h-6 fill-slate-950 text-emerald-950" />
         <span className="hidden sm:inline-block pr-1 uppercase tracking-wider">Falar com consultor</span>
       </a>
 

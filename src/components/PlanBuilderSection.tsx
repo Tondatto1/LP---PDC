@@ -129,7 +129,7 @@ export const PlanBuilderSection: React.FC<PlanBuilderSectionProps> = ({ onOpenCt
         <div className="mt-16 text-center">
           <button
             onClick={() => onOpenCtaModal('Estrutura do Programa')}
-            className="inline-flex items-center gap-3 px-8 py-4 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm uppercase tracking-wider rounded-2xl shadow-lg shadow-emerald-600/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
+            className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-sm sm:text-base uppercase tracking-wider rounded-2xl border border-emerald-300/60 ring-2 ring-emerald-500/20 shadow-lg shadow-emerald-600/30 transition-all transform hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
           >
             <span>FALAR COM CONSULTOR</span>
             <ArrowRight className="w-5 h-5" />

@@ -82,7 +82,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCtaModal }) => {
 
             <button
               onClick={onOpenCtaModal}
-              className="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-xs uppercase tracking-wider rounded-lg shadow-md shadow-emerald-600/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 cursor-pointer"
+              className="px-5 py-2.5 bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-xs uppercase tracking-wider rounded-lg border border-emerald-300/60 ring-2 ring-emerald-500/20 shadow-md shadow-emerald-600/20 transition-all transform hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2 cursor-pointer"
             >
               <span>QUERO VENDER MAIS!</span>
               <ArrowRight className="w-4 h-4" />
@@ -93,7 +93,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCtaModal }) => {
           <div className="flex lg:hidden items-center gap-3">
             <button
               onClick={onOpenCtaModal}
-              className="sm:hidden px-3 py-1.5 bg-emerald-600 text-white font-black text-[11px] uppercase rounded-lg"
+              className="sm:hidden px-3.5 py-1.5 bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-[11px] uppercase rounded-lg border border-emerald-300/60 ring-1 ring-emerald-500/20 shadow-sm"
             >
               QUERO VENDER MAIS!
             </button>
@@ -130,7 +130,7 @@ export const Header: React.FC<HeaderProps> = ({ onOpenCtaModal }) => {
                 setMobileMenuOpen(false);
                 onOpenCtaModal();
               }}
-              className="w-full py-3 bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm uppercase tracking-wider rounded-xl shadow-md flex items-center justify-center gap-2"
+              className="w-full py-3.5 bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-sm uppercase tracking-wider rounded-xl border border-emerald-300/60 ring-2 ring-emerald-500/20 shadow-md flex items-center justify-center gap-2 cursor-pointer"
             >
               <span>QUERO VENDER MAIS!</span>
               <ArrowRight className="w-4 h-4" />

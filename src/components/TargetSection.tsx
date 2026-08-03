@@ -136,16 +136,6 @@ const FaturamentoIcon = () => (
 );
 
 export const TargetSection: React.FC<TargetSectionProps> = () => {
-  const getIcon = (id: string) => {
-    switch (id) {
-      case 'roi': return <RoiIcon />;
-      case 'margem': return <MargemIcon />;
-      case 'vendas': return <VendasIcon />;
-      case 'faturamento': return <FaturamentoIcon />;
-      default: return <RoiIcon />;
-    }
-  };
-
   return (
     <section id="para-quem-e" className="py-20 lg:py-28 bg-gradient-to-br from-emerald-100/60 via-blue-50/70 to-white text-slate-900 relative overflow-hidden">
       
@@ -188,29 +178,6 @@ export const TargetSection: React.FC<TargetSectionProps> = () => {
             </div>
           </div>
 
-        </div>
-
-        {/* Animated Segment Cards */}
-        <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {AGRO_SEGMENTS.map((segment) => (
-            <motion.div
-              key={segment.id}
-              whileHover={{ y: -6, scale: 1.02 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="group relative rounded-2xl p-[1.5px] bg-gradient-to-r from-emerald-400/40 via-blue-400/40 to-emerald-400/40 shadow-sm hover:shadow-xl hover:shadow-emerald-500/20 transition-all duration-300"
-            >
-              <div className="bg-white/95 rounded-[14px] p-6 h-full flex flex-col justify-between backdrop-blur-sm group-hover:bg-white transition-colors duration-300 border border-slate-200/80 group-hover:border-emerald-500">
-                <div className="space-y-4">
-                  <div className="w-12 h-12 rounded-xl bg-emerald-100/90 text-emerald-700 group-hover:bg-emerald-600 group-hover:text-white transition-all duration-300 flex items-center justify-center font-bold shadow-sm group-hover:shadow-md group-hover:shadow-emerald-600/30">
-                    {getIcon(segment.id)}
-                  </div>
-                  <h3 className="font-black text-xl text-slate-900 tracking-wide group-hover:text-emerald-700 transition-colors duration-300">
-                    {segment.title}
-                  </h3>
-                </div>
-              </div>
-            </motion.div>
-          ))}
         </div>
 
       </div>

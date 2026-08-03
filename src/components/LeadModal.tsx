@@ -138,7 +138,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose, defaultPl
                   href={`https://wa.me/5567998190294?text=${encodeURIComponent('Olá, venho através da página. Gostaria de falar com consultor.')}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold rounded-xl text-sm transition shadow-lg flex items-center justify-center gap-2 uppercase tracking-wider"
+                  className="w-full py-3.5 bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black rounded-xl border border-emerald-300/60 ring-2 ring-emerald-500/20 text-sm transition shadow-lg flex items-center justify-center gap-2 uppercase tracking-wider"
                 >
                   Falar com consultor <ArrowRight className="w-4 h-4" />
                 </a>
@@ -224,7 +224,7 @@ export const LeadModal: React.FC<LeadModalProps> = ({ isOpen, onClose, defaultPl
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3.5 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-base uppercase tracking-wider rounded-xl shadow-lg shadow-emerald-600/20 transition-all transform active:scale-98 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="w-full py-3.5 bg-gradient-to-r from-emerald-600 via-emerald-500 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-black text-base uppercase tracking-wider rounded-xl border border-emerald-300/60 ring-2 ring-emerald-500/20 shadow-lg shadow-emerald-600/30 transition-all transform active:scale-98 flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {loading ? (
                     <span>Processando...</span>
